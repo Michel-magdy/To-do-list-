@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To Do List — Task Manager</title>
+    <meta name="description" content="A modern, beautiful to-do list application to manage your daily tasks.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./ToDo.css">
+</head>
+
+<body>
+
+    <!-- Animated background orbs -->
+    <div class="bg-orb bg-orb-1"></div>
+    <div class="bg-orb bg-orb-2"></div>
+    <div class="bg-orb bg-orb-3"></div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-left">
+                <h1>My Tasks</h1>
+                <p class="date-display" id="dateDisplay"></p>
+            </div>
+            <div class="task-stats" id="taskStats">
+                <span class="stat-badge" id="statBadge">0 tasks</span>
+            </div>
+        </header>
+
+        <!-- Input area -->
+        <div class="input-wrapper">
+            <div class="input-bar" id="inputBar">
+                <svg class="input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10" />
+                    <line x1="12" y1="8" x2="12" y2="16" />
+                    <line x1="8" y1="12" x2="16" y2="12" />
+                </svg>
+                <input type="text" id="taskInput" placeholder="What needs to be done?" autocomplete="off"
+                    maxlength="200">
+                <button class="add-btn" id="addBtn" aria-label="Add task">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"
+                        stroke-linecap="round">
+                        <line x1="12" y1="5" x2="12" y2="19" />
+                        <line x1="5" y1="12" x2="19" y2="12" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Filter tabs -->
+        <div class="filter-tabs">
+            <button class="filter-btn active" data-filter="all" id="filterAll">All</button>
+            <button class="filter-btn" data-filter="active" id="filterActive">Active</button>
+            <button class="filter-btn" data-filter="completed" id="filterCompleted">Completed</button>
+        </div>
+
+        <!-- Task list -->
+        <div class="task-list" id="taskList">
+            <!-- Tasks render here -->
+        </div>
+
+        <!-- Empty state -->
+        <div class="empty-state" id="emptyState">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2" />
+                <rect x="9" y="3" width="6" height="4" rx="1" />
+                <path d="M9 14l2 2 4-4" />
+            </svg>
+            <p>No tasks yet</p>
+            <span>Add a task to get started!</span>
+        </div>
+
+        <!-- Footer -->
+        <footer class="app-footer" id="appFooter">
+            <span class="items-left" id="itemsLeft">0 items left</span>
+            <button class="clear-btn" id="clearCompleted">Clear completed</button>
+        </footer>
+    </div>
+
+    <script src="./JS.js"></script>
+</body>
+
+</html>
