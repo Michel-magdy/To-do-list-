@@ -1,0 +1,183 @@
+.task-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: var(--transition);
+    animation: slideIn 0.35s ease-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.task-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+    opacity: 0;
+    transition: var(--transition);
+}
+
+.task-item:hover {
+    background: var(--bg-card-hover);
+    border-color: var(--border-hover);
+}
+
+.task-item:hover::before {
+    opacity: 1;
+}
+
+.task-item.completed {
+    opacity: 0.5;
+}
+
+.task-item.completed::before {
+    background: var(--success);
+}
+
+.task-item.removing {
+    animation: slideOut 0.3s ease-in forwards;
+}
+
+/* Custom checkbox */
+.task-checkbox {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+}
+
+.task-checkbox input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.checkmark {
+    position: absolute;
+    inset: 0;
+    border: 2px solid var(--text-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkmark svg {
+    width: 12px;
+    height: 12px;
+    stroke: white;
+    stroke-width: 3;
+    fill: none;
+    opacity: 0;
+    transform: scale(0);
+    transition: var(--transition);
+}
+
+.task-checkbox input:checked + .checkmark {
+    background: linear-gradient(135deg, var(--accent), #9b7dfc);
+    border-color: var(--accent);
+    box-shadow: 0 2px 8px var(--accent-glow);
+}
+
+.task-checkbox input:checked + .checkmark svg {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.checkmark:hover {
+    border-color: var(--accent);
+}
+
+/* Task text */
+.task-text {
+    flex: 1;
+    font-size: 0.93rem;
+    color: var(--text-primary);
+    line-height: 1.4;
+    word-break: break-word;
+    transition: var(--transition);
+}
+
+.task-item.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-muted);
+}
+
+/* Edit input */
+.task-edit-input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: rgba(255, 255, 255, 0.08);
+    font-family: inherit;
+    font-size: 0.93rem;
+    color: var(--text-primary);
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: 1px solid var(--accent);
+}
+
+/* Task actions */
+.task-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+    transform: translateX(8px);
+    transition: var(--transition);
+}
+
+.task-item:hover .task-actions {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 8px;
+    background: transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.action-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.action-btn.edit-btn:hover {
+    background: var(--accent-soft);
+    color: var(--accent);
+}
+
+.action-btn.delete-btn:hover {
+    background: var(--danger-soft);
+    color: var(--danger);
+}
+
+@media (max-width: 600px) {
+    .task-item {
+        padding: 12px 14px;
+        gap: 12px;
+    }
+
+    .task-actions {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

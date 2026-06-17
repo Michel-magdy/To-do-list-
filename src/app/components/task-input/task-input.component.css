@@ -1,0 +1,87 @@
+.input-wrapper {
+    margin-bottom: 20px;
+}
+
+.input-bar {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 6px 6px 6px 18px;
+    background: var(--bg-input);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    transition: var(--transition);
+}
+
+.input-bar:focus-within {
+    background: var(--bg-input-focus);
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px var(--accent-glow), 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.input-icon {
+    width: 20px;
+    height: 20px;
+    color: var(--text-muted);
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.input-bar:focus-within .input-icon {
+    color: var(--accent);
+}
+
+input[type="text"] {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+    padding: 12px 0;
+}
+
+input[type="text"]::placeholder {
+    color: var(--text-muted);
+}
+
+.add-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    border: none;
+    background: linear-gradient(135deg, var(--accent), #9b7dfc);
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    transition: var(--transition);
+}
+
+.add-btn svg {
+    width: 20px;
+    height: 20px;
+}
+
+.add-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px var(--accent-glow);
+}
+
+.add-btn:active {
+    transform: scale(0.95);
+}
+
+@media (max-width: 600px) {
+    .input-bar {
+        padding: 4px 4px 4px 14px;
+    }
+
+    .add-btn {
+        width: 40px;
+        height: 40px;
+    }
+}

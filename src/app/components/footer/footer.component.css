@@ -1,0 +1,33 @@
+.app-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+}
+
+.items-left {
+    font-size: 0.83rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
+.clear-btn {
+    border: none;
+    background: transparent;
+    color: var(--text-muted);
+    font-family: inherit;
+    font-size: 0.83rem;
+    font-weight: 500;
+    cursor: pointer;
+    padding: 6px 12px;
+    border-radius: 6px;
+    transition: var(--transition);
+}
+
+.clear-btn:hover {
+    color: var(--danger);
+    background: var(--danger-soft);
+}

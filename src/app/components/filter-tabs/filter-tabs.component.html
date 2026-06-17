@@ -1,0 +1,11 @@
+<div class="filter-tabs">
+    @for (filter of filters; track filter.value) {
+        <button
+            class="filter-btn"
+            [class.active]="currentFilter() === filter.value"
+            (click)="setFilter(filter.value)"
+        >
+            {{ filter.label }}
+        </button>
+    }
+</div>

@@ -1,0 +1,12 @@
+@if (totalCount() > 0) {
+    <footer class="app-footer">
+        <span class="items-left">{{ activeCount() }} item{{ activeCount() !== 1 ? 's' : '' }} left</span>
+        <button
+            class="clear-btn"
+            [style.visibility]="completedCount() > 0 ? 'visible' : 'hidden'"
+            (click)="clearCompleted()"
+        >
+            Clear completed
+        </button>
+    </footer>
+}
